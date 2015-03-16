@@ -25,6 +25,8 @@ see Gemfile.lock for system dependencies
 
 * ...
 
+This project is going to make a copy of stackoverflow (http://stackoverflow.com). It will have articles with questions which have comments.
+
 
 Please feel free to use a different markup language if you do not plan to run
 <tt>rake doc:app</tt>.
