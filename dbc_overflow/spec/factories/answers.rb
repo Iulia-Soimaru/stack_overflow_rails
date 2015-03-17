@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :answer do
     title "MyString"
-content "MyText"
+    content "MyText"
   end
 
 end

@@ -1,11 +1,14 @@
 class QuestionsController < ApplicationController
   def index
-    @question = Question.new(params[:id])
-    @question.save
+    @questions = Question.all
     # redirect_to @question
   end
 
   def show
-    @question = Question.find(params[:id])
+    p "*" * 100
+    p params
+    @question = Question.where(params[:id])
+    p "*" * 100
+    p params
   end
 end
