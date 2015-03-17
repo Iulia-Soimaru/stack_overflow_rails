@@ -5,10 +5,6 @@ class QuestionsController < ApplicationController
   end
 
   def show
-    p "*" * 100
-    p params
-    @question = Question.where(params[:id])
-    p "*" * 100
-    p params
+    @question = Question.find(params[:id])
   end
 end
