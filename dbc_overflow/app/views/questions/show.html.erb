@@ -1,19 +1,20 @@
-<p>
-  <strong>Title: </strong>
-  <%= @question.title %>
-</p>
+<h2>Title: <%= @question.title %>
+</h2>
 
-<p>
-  <strong>Content: </strong>
-  <%= @question.content %>
-</p>
+<h2>Content:</h2>
+  <h3><%= @question.content %></h3>
+
 
 <p>*****************************************</p>
 
+<h2>Answers:</h2>
 <p>
-  <strong>Answers: </strong>
-  <%= @answer.title %>
-  <%= @answer.content %>
+  <% @answers.each do |a| %>
+    <strong><%= a.title %></strong>
+</p>
+<p>
+    <%= a.content %>
+  <% end %>
 </p>
 
 <%= link_to "Back", questions_path %>
