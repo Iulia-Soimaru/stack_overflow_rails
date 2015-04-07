@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :questions
-  root 'questions#index'
+  # root 'questions#index'
   # get 'questions/:id/show' => 'questions#show'
   # get 'questions/edit' => 'questions#edit'
   # put 'questions/:id' => 'questions#update'

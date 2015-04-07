@@ -1,6 +1,14 @@
 class QuestionsController < ApplicationController
   def index
-    @in=Question.all
+    @questions=Question.all
+  end
+
+  def create
+    question = Question.create(title: params[:title], content: params[:content])
+    redirect_to '/questions'
+    # render :index
+    # if question.save
+    #   redirect_to
   end
 
   def edit

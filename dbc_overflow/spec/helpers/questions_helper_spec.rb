@@ -1,7 +1,6 @@
 require 'rails_helper'
 require 'simplecov'
 SimpleCov.start 'rails'
-
 # Specs in this file have access to a helper object that includes
 # the AnswersHelper. For example:
 #
@@ -12,6 +11,6 @@ SimpleCov.start 'rails'
 #     end
 #   end
 # end
-RSpec.describe AnswersHelper, type: :helper do
+RSpec.describe QuestionsHelper, type: :helper do
   # pending "add some examples to (or delete) #{__FILE__}"
 end
