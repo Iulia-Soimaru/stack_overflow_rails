@@ -44,18 +44,25 @@ end
 
  describe "POST create" do
   it "should create a new question" do
-    # question
     params = {title:"Ruby?", content:"wtf ruby!"}
     post :create, params
-    # Question.create(title:"Ruby?", content:"wtf ruby!")
-    # expect(Question.exists?(title:"Ruby?")).to be(true)
-    # expect(Question.exists?(title:"What is Ruby?")).to be(true)
   end
  end
 
- # describe "Post edit" do
- #  it
- # end
+ describe "POST edit" do
+  it "should find an existing question to edit" do
+    question
+    params = {id: question.id}
+    post :edit, params
+  end
+
+  it "tests the update method" do
+    question
+    params = {id: question.id}
+    # question_params = {title:"Rubyedited?", content:"wtf ruby!edited", id:question.id}
+    put :update, params #, question_params
+  end
+ end
 
  describe "GET show" do
   it "should display question content and answers" do
