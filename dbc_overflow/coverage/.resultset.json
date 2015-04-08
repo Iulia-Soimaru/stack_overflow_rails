@@ -1,6 +1,10 @@
 {
   "RSpec": {
     "coverage": {
+      "/Users/apprentice/Desktop/stack-overflow-workshop-challenge/dbc_overflow/app/helpers/ansvotes_helper.rb": [
+        1,
+        null
+      ],
       "/Users/apprentice/Desktop/stack-overflow-workshop-challenge/dbc_overflow/app/helpers/answers_helper.rb": [
         1,
         null
@@ -10,6 +14,10 @@
         null
       ],
       "/Users/apprentice/Desktop/stack-overflow-workshop-challenge/dbc_overflow/app/helpers/questions_helper.rb": [
+        1,
+        null
+      ],
+      "/Users/apprentice/Desktop/stack-overflow-workshop-challenge/dbc_overflow/app/helpers/votes_helper.rb": [
         1,
         null
       ],
@@ -30,6 +38,19 @@
         0,
         null,
         null,
+        null,
+        null,
+        null,
+        1,
+        0,
+        0,
+        0,
+        null,
+        null,
+        1,
+        0,
+        0,
+        0,
         null,
         null,
         1,
@@ -63,14 +84,28 @@
         null,
         null,
         1,
-        0,
-        0,
+        1,
+        null,
+        1,
+        1,
         null,
         null,
         1,
         0,
         0,
         0,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
         null,
         null,
         1,
@@ -81,7 +116,13 @@
         null,
         null
       ],
+      "/Users/apprentice/Desktop/stack-overflow-workshop-challenge/dbc_overflow/app/models/ansvote.rb": [
+        1,
+        1,
+        null
+      ],
       "/Users/apprentice/Desktop/stack-overflow-workshop-challenge/dbc_overflow/app/models/answer.rb": [
+        1,
         1,
         1,
         1,
@@ -92,11 +133,16 @@
       "/Users/apprentice/Desktop/stack-overflow-workshop-challenge/dbc_overflow/app/models/question.rb": [
         1,
         1,
-        null,
+        1,
+        1,
+        null
+      ],
+      "/Users/apprentice/Desktop/stack-overflow-workshop-challenge/dbc_overflow/app/models/vote.rb": [
+        1,
         1,
         null
       ]
     },
-    "timestamp": 1428447590
+    "timestamp": 1428461906
   }
 }

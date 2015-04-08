@@ -1,7 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe Answer, type: :model do
-
+let(:question) do
+  Question.create!(title:"What is Ruby?", content:"nothing")
+end
 
 context "It describes the question model" do
   it 'should be valid question' do
@@ -17,7 +19,8 @@ context "It describes the question model" do
   end
 
   it 'creates a valid Answer' do
-    Answer.create(title:"something", content:"something something").should be_valid
+    question
+    Answer.create(title:"something", content:"something something", question_id:question.id).should be_valid
   end
 end
 

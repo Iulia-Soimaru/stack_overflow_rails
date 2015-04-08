@@ -6,9 +6,6 @@ class QuestionsController < ApplicationController
   def create
     question = Question.create(title: params[:title], content: params[:content])
     redirect_to '/questions'
-    # render :index
-    # if question.save
-    #   redirect_to
   end
 
   def edit
@@ -17,6 +14,7 @@ class QuestionsController < ApplicationController
 
   def show
     @question = Question.find(params[:id])
+    # @answer_one = Answer.find(params[:id])
     @new_answer = Answer.new
     @answer = Answer.where(question_id: @question.id).first
   end

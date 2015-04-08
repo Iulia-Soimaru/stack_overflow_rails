@@ -11,5 +11,5 @@ require 'rails_helper'
 #   end
 # end
 RSpec.describe AnsvotesHelper, type: :helper do
-  pending "add some examples to (or delete) #{__FILE__}"
+  # pending "add some examples to (or delete) #{__FILE__}"
 end
