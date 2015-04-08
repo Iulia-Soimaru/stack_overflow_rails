@@ -1,5 +1,5 @@
 <h1><%= @question.title %></h1>
-<%= @question.content %><br><br> <a href="/delete">Delete</a> || <a href="/questions/<%= @question.id %>/edit">Edit</a> <br>
+<%= @question.content %><br><br> <%= button_to("Delete", @question, method: :delete) %> || <a href="/questions/<%= @question.id %>/edit">Edit</a> <br>
 
 <% if @error %>
   <%= @error %>
@@ -21,7 +21,7 @@
     <%= answer.content %><br><br>
     <%= button_to '+1', "/questions/#{@question.id}/answers/#{answer.id}/ansvotes", method: :post%>
 <!-- /questions/:question_id/answers/:answer_id/ansvotes -->
-    <%= button_to '-1', "/questions/#{@question.id}/answers/#{answer.id}/ansvotes/#{answer.ansvotes.first.id}", method: :delete%>
+    <%= button_to '-1', "/questions/#{@question.id}/answers/#{answer.id}/ansvotes/destroy", method: :delete%>
     <span><%= answer.ansvotes.count %></span>
 
 

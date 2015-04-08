@@ -1,9 +1,12 @@
 class QuestionsController < ApplicationController
   def index
     @questions=Question.all
-    @questions.each do |question|
-      question.votes = Vote.where(question_id: question.id)
-    end
+    headers = {
+      "User-Agent" => "DBC-Overflow"
+    }
+    # @questions.each do |question|
+    #   question.votes = Vote.where(question_id: question.id)
+    # end
 
     # binding.pry
   end
@@ -44,6 +47,13 @@ class QuestionsController < ApplicationController
   #   @question.votes.last.destroy
   #   redirect_to questions_path
   # end
+
+  def destroy
+    p "in destroy route"
+    question = Question.find(params[:id])
+    question.destroy
+    redirect_to questions_path
+  end
 
 private
 

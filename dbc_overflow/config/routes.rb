@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   end
 
   delete "/questions/:question_id/votes/destroy" => 'votes#destroy'
+  delete "/questions/:question_id/answers/:answer_id/ansvotes/destroy" => 'ansvotes#destroy'
 
   # post 'questions/:id/upvote' => 'questions#upvote'
   # post 'questions/:id/downvote' => 'questions#downvote'

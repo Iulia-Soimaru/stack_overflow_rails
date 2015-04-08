@@ -1,5 +1,6 @@
 require File.expand_path('../boot', __FILE__)
-
+require 'dotenv'
+Dotenv.load
 # Pick the frameworks you want:
 require "active_model/railtie"
 require "active_record/railtie"
@@ -12,6 +13,8 @@ require "sprockets/railtie"
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
+Dotenv::Railtie.load
+HOSTNAME = ENV['HOSTNAME']
 
 module DbcOverflow
   class Application < Rails::Application

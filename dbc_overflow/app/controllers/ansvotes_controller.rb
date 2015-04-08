@@ -10,7 +10,9 @@ class AnsvotesController < ApplicationController
     @question = Question.find(params[:question_id])
     @answer = Answer.find(params[:answer_id])
     # @ansvote = Ansvote.where(answer_id: @answer.id)
-    @answer.ansvotes.last.destroy
+    if !(@answer.ansvotes==[])
+      @answer.ansvotes.last.destroy
+    end
     redirect_to "/questions/#{@question.id}"
   end
 end
