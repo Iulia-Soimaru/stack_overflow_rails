@@ -9,8 +9,10 @@ class VotesController < ApplicationController
   def destroy
     @question = Question.find(params[:question_id])
     @vote = Vote.where(question_id: @question.id)
-    @question.votes.last.destroy
-    redirect_to questions_path
+    if !(@question.votes==[])
+      @question.votes.last.destroy
+    end
+      redirect_to questions_path
   end
 
 end

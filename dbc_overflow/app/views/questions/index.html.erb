@@ -12,7 +12,7 @@
     <% @questions.each do |question| %>
       <li class="question"><a href="questions/<%= question.id %>"><b><%= question.title %></b></a>
         <%= button_to '+1', "/questions/#{question.id}/votes", method: :post%>
-        <%= button_to '-1', "/questions/#{question.id}/votes/#{question.votes.first.id}", method: :delete%>
+        <%= button_to '-1', "/questions/#{question.id}/votes/destroy", method: :delete%>
         <span><%= question.votes.count %></span>
       </li>
     <% end %>

@@ -1,11 +1,19 @@
 class QuestionsController < ApplicationController
   def index
     @questions=Question.all
+    @questions.each do |question|
+      question.votes = Vote.where(question_id: question.id)
+    end
+
+    # binding.pry
   end
 
   def create
     question = Question.create(title: params[:title], content: params[:content])
     redirect_to '/questions'
+    # render :index
+    # if question.save
+    #   redirect_to
   end
 
   def edit

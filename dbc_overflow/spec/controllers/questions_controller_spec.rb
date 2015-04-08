@@ -45,11 +45,17 @@ end
  describe "POST create" do
   it "should create a new question" do
     # question
-    Question.create(title:"Ruby?", content:"wtf ruby!")
-    expect(Question.exists?(title:"Ruby?")).to be(true)
+    params = {title:"Ruby?", content:"wtf ruby!"}
+    post :create, params
+    # Question.create(title:"Ruby?", content:"wtf ruby!")
+    # expect(Question.exists?(title:"Ruby?")).to be(true)
     # expect(Question.exists?(title:"What is Ruby?")).to be(true)
   end
  end
+
+ # describe "Post edit" do
+ #  it
+ # end
 
  describe "GET show" do
   it "should display question content and answers" do
