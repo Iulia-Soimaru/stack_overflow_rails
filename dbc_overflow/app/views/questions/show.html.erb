@@ -1,17 +1,33 @@
 <h1><%= @question.title %></h1>
 <%= @question.content %><br><br> <a href="/delete">Delete</a> || <a href="/questions/<%= @question.id %>/edit">Edit</a> <br>
-<ul>
-<% @question.answers.each do |answer| %>
-  <li><i><%= answer.title %></i><br>
-  <%= answer.content %><br><br>
-</li>
+
+<% if @error %>
+  <%= @error %>
 <% end %>
+<h3>Share your answer here:</h3>
+<%= form_for [@question, @new_answer] do |f| %>
+  <%= f.label(:title, "Title:") %>
+  <%= f.text_field :title %>
+  <%= f.label(:content, "Content:") %>
+  <%= f.text_area :content %>
+  <%= f.submit("Create") %>
+<% end %>
+<hr>
+
+
+<ul>
+  <% @question.answers.each do |answer| %>
+    <li><i><%= answer.title %></i><br>
+    <%= answer.content %><br><br>
+    <%= button_to '+1', "/questions/#{@question.id}/answers/#{answer.id}/ansvotes", method: :post%>
+<!-- /questions/:question_id/answers/:answer_id/ansvotes -->
+    <%= button_to '-1', "/questions/#{@question.id}/answers/#{answer.id}/ansvotes/#{answer.ansvotes.first.id}", method: :delete%>
+    <span><%= answer.ansvotes.count %></span>
+
+
+
+    <!-- /questions/:question_id/answers/:answer_id/ansvotes/:id( -->
+    </li>
+  <% end %>
 
 </ul>
-<h3>Share your answer here:</h3>
-<%= form_tag do %>
-<input name="utf8" type="hidden" value="&#x2713;" />
-<input name="title" type="text"><br>
-<textarea name="content"></textarea>
-<input type="submit" value="submit">
-<% end %>

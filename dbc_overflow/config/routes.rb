@@ -1,5 +1,23 @@
 Rails.application.routes.draw do
-  resources :questions
+  resources :questions do
+    resources :votes
+    resources :answers do
+      resources :ansvotes
+    end
+  end
+
+  # post 'questions/:id/upvote' => 'questions#upvote'
+  # post 'questions/:id/downvote' => 'questions#downvote'
+
+  # post '/questions/answers/:id/upvote' => 'answers#upvote'
+  # post '/questions/answers/:id/downvote' => 'answers#downvote'
+
+
+
+
+
+
+
   # root 'questions#index'
   # get 'questions/:id/show' => 'questions#show'
   # get 'questions/edit' => 'questions#edit'
