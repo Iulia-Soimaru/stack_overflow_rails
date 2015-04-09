@@ -32,19 +32,38 @@ $(document).ready(function(){
   $('input[value="+1"]').parent().parent().on("submit", function(event){
     event.preventDefault();
     console.log("clicked upvote");
-    console.log(this)
-    var currentVote = $(this).next().next()[0];
     var link = $(this).attr("action");
-    console.log(currentVote);
-    console.log(link);
+    var currentVote = $(this).next().next()[0];
+    // console.log($(this));
+    // console.log(currentVote);
 
     $.ajax({
       url: link,
       type: "POST",
       dataType: "JSON",
-      // data: currentVote
+      // data: {vote: currentVote   },
     }).done(function(response){
-      console.log(response);
+      $(currentVote).text(response.question_vote)
+    }).fail(function(response){
+      alert(response)
+    })
+  });
+
+
+  $('input[value="-1"]').parent().parent().on("submit", function(event){
+    event.preventDefault();
+    console.log("clicked upvote");
+    var link = $(this).attr("action");
+    console.log(link)
+    var currentVote = $(this).next()[0];
+    console.log(currentVote)
+
+    $.ajax({
+      url: link,
+      type: "DELETE",
+      dataType: "JSON",
+    }).done(function(response){
+      $(currentVote).text(response.question_vote)
     }).fail(function(response){
       alert(response)
     })
