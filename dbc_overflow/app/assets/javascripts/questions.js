@@ -19,24 +19,35 @@ $(document).ready(function(){
     }).done(function(data){
       console.log(data);
       // debugger
-      $('.questions-list').append("<li class='question'><a href='questions/" + data.question.id + "'><b>" + data.question.title + "</b></a><form action='/questions/" + data.question.id + "/votes' class='button_to' method='post'><div><input type='submit' value='+1'></div></form><form action='/questions/" + data.question.id + "/votes/destroy' class='button_to' method='post'><div><input type='submit' value='-1'></div></form><span>" + data.votes.length + "</span></li>");
+      $('.questions-list').append("<li class='question'><a href='questions/" + data.question.id + "'><b>" + data.question.title + "</b></a><form action='/questions/" + data.question.id + "/votes' class='button_to' method='post'><div><input type='submit' value='+1'></div></form><form action='/questions/" + data.question.id + "/votes/destroy' class='button_to' method='post'><div><input type='submit' value='-1'></div></form><span class='question_vote'>" + data.votes.length + "</span></li>");
     }).fail(function(data){
       alert(data);
     })
   })
 
-});
+  // ajax upvote button
+  // select input[button] by value +1
+  // prevent default behavior
+  // make an ajax call
+  $('input[value="+1"]').parent().parent().on("submit", function(event){
+    event.preventDefault();
+    console.log("clicked upvote");
+    console.log(this)
+    var currentVote = $(this).next().next()[0];
+    var link = $(this).attr("action");
+    console.log(currentVote);
+    console.log(link);
 
-// '<li class="question"><a href="questions/' + data.id + '><b>' + data.title + '</b></a>
-//     <form action="/questions/' + data.id + '/votes" class="button_to" method="post">
-//       <div>
-//         <input type="submit" value="+1">
-//       </div>
-//     </form>
-//     <form action="/questions/' + data.id + '/votes/destroy" class="button_to" method="post">
-//       <div>
-//         <input type="submit" value="-1">
-//       </div>
-//     </form>
-//     <span><%= question.votes.count %></span>
-//   </li>'
+    $.ajax({
+      url: link,
+      type: "POST",
+      dataType: "JSON",
+      // data: currentVote
+    }).done(function(response){
+      console.log(response);
+    }).fail(function(response){
+      alert(response)
+    })
+  });
+
+});
