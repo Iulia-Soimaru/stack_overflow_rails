@@ -1,9 +1,7 @@
 class QuestionsController < ApplicationController
   def index
     @questions=Question.all
-    headers = {
-      "User-Agent" => "DBC-Overflow"
-    }
+    @question = Question.new
     # @questions.each do |question|
     #   question.votes = Vote.where(question_id: question.id)
     # end
@@ -12,8 +10,18 @@ class QuestionsController < ApplicationController
   end
 
   def create
-    question = Question.create(title: params[:title], content: params[:content])
-    redirect_to '/questions'
+    @question = Question.new(question_params)
+    p params
+    respond_to do |format|
+      if @question.save
+        format.html { redirect_to '/questions', notice: 'Question successfully created' }
+        format.json { render json: {question: @question, votes: @question.votes }, status: :created }
+      else
+        format.html { render action: 'index' }
+        format.json { render json: @question.errors.full_messages, status: :unprocessable_entity }
+      end
+    end
+    # redirect_to '/questions'
     # render :index
     # if question.save
     #   redirect_to

@@ -2,14 +2,14 @@
 <h1>Here are the questions</h1>
 
 <h2>Create a new Question here:</h2>
-<%= form_tag do %>
-<input name="utf8" type="hidden" value="&#x2713;" />
-<input name="title" type="text"><br>
-<textarea name="content"></textarea>
-<input type="submit" value="submit">
+<%= form_for @question, url: {action: "create"} do |f| %>
+  <%= f.text_field :title %>
+  <%= f.text_area :content %>
+  <%= f.submit "Create Question" %>
 <% end %>
+
 <div>
-  <ul>
+  <ul class="questions-list">
     <% @questions.each do |question| %>
       <li class="question"><a href="questions/<%= question.id %>"><b><%= question.title %></b></a>
         <%= button_to '+1', "/questions/#{question.id}/votes", method: :post%>
